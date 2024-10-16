@@ -1,50 +1,27 @@
-
-// EXAMPLE
-// factory function
-
-function createPokemon(data) {
-  let name = data.name || "Unknown"; 
-  let weight = data.weight || "Unknown";
-  let abilities = [];
-  for(let i=0; i<data.abilities.length; i++) {
-    abilities.push(data.abilities[i].ability.name)
-  }
-  return {
-    name: name,
-    weight: weight,
-    abilities: abilities,
-    showStatus() {
-      return `${this.name} is ${this.weight} kg`;
-    },
-    attack(id) {
-      if(id<this.abilities.length) {
-        return `${this.name} performed a ${this.abilities[id]}`;
-      }
-    }
-  }
-}
-
-// EXAMPLE
-// class
-class Pokemon {
-  constructor(data) {
-    this.name = data.name;
-    this.weight = data.weight;
-    this.abilities = [];
-    for(let i=0; i<data.abilities.length; i++) {
-      this.abilities.push(data.abilities[i].ability.name)
-    }
+export class Pokemon {
+  constructor(name, type, level) {
+    this.name = name;
+    this.type = type;
+    this.level = level;
   }
 
-  showStatus() {
-    return `${this.name} is ${this.weight} kg!`;
+  getName() {
+    return this.name;
   }
 
-  attack(id) {
-    if(id<this.abilities.length) {
-      return `${this.name} busted a ${this.abilities[id]}`;
-    }
+  getType() {
+    return this.type;
+  }
+
+  getLevel() {
+    return this.level;
+  }
+
+  levelUp() {
+    this.level += 1;
+  }
+
+  describePokemon() {
+    return `${this.name} is a ${this.type}-type Pokemon at level ${this.level}.`;
   }
 }
-
-export {createPokemon, Pokemon};
