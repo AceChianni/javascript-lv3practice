@@ -1,27 +1,28 @@
-// openfoodfacts.js
-
-// TODO: Define an OpenFoodFacts class that accepts an object with properties: product_name, brand_owner, image_url, and code.
-
-class OpenFoodFacts {
-  // TODO: Create a constructor that initializes the following properties: productName, brandOwner, imageUrl, and code.
-  constructor(data) {
-    // TODO: Set the productName from data.product_name or use a default value if not provided.
-    // TODO: Set the brandOwner from data.brand_owner or use a default value if not provided.
-    // TODO: Set the imageUrl from data.image_url or use a default value if not provided.
-    // TODO: Set the code from data.code or use a default value if not provided.
+export class OpenFoodFacts {
+  constructor(productData) {
+    this.productName = productData.product_name;
+    this.brandOwner = productData.brand_owner;
+    this.imageUrl = productData.image_url;
+    this.code = productData.code;
   }
 
-  // TODO: Implement a method named getProductName that returns the product name.
+  getProductName() {
+    return this.productName;
+  }
 
-  // TODO: Implement a method named getBrandOwner that returns the brand owner.
+  getBrandOwner() {
+    return this.brandOwner;
+  }
 
-  // TODO: Implement a method named getImageUrl that returns the image URL.
+  getImageUrl() {
+    return this.imageUrl;
+  }
 
-  // TODO: Implement a method named getCode that returns the product code.
+  getCode() {
+    return this.code;
+  }
 
-  // TODO: Implement a method named showProductSummary that returns a formatted string using productName, brandOwner, code, and imageUrl.
-  // Example formatted string: "Product: [productName] by [brandOwner]. Code: [code]. Image available at: [imageUrl]"
-  // Replace [productName], [brandOwner], [code], and [imageUrl] with the corresponding property values.
+  showProductSummary() {
+    return `Product: ${this.productName} by ${this.brandOwner}. Code: ${this.code}. Image available at: ${this.imageUrl}`;
+  }
 }
-
-export { OpenFoodFacts };
