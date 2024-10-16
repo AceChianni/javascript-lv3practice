@@ -18,38 +18,50 @@ setTimeout(() => {
 
 // Problem 1: Simple Timeout with a Message
 // Instructions: Create an arrow function that logs "Hello, World!" to the console after 1 second (1000 milliseconds).
+setTimeout(() => {
+  console.log("Hello, World!");
+}, 1000);
 
 // Problem 2: Timeout that Logs a Number
 // Instructions: Create an arrow function that logs the number 42 to the console after 2 seconds (2000 milliseconds).
+setTimeout(() => {
+  console.log(42);
+}, 2000);
 
 // Problem 3: Timeout that Adds Two Numbers
 // Instructions: Create an arrow function that adds two numbers, 5 and 7, and logs the result (12) to the console after 3 seconds (3000 milliseconds).
+setTimeout(() => {
+  console.log(5 + 7);
+}, 3000);
 
 // Problem 4: Timeout that Logs Current Time
 // Instructions: Create an arrow function that logs the current date and time using `new Date().toLocaleString()` after 4 seconds (4000 milliseconds).
+setTimeout(() => {
+  console.log(new Date().toLocaleString());
+}, 4000);
 
 // Problem 5: Timeout that Logs a Countdown
 // Instructions: Create a series of arrow functions inside setTimeout that count down from 3 to 1 at 1-second intervals, and finally logs "Go!" after 3 seconds.
-// Hint: You'll need to use 3 different setTimeout calls for this task.
 
-// setTimeout(() => {
-//   setTimeout(() => console.log(3) , 1000);
-//   setTimeout(() => console.log(2) , 2000);
-//   setTimeout(() => console.log(1) , 3000);
-//   setTimeout(() => console.log("Go!") , 3000);
-// }, 4000);
+// First version of the solution with individual setTimeout calls (based on the hint in comments):
+setTimeout(() => {
+  setTimeout(() => console.log(3), 1000);
+  setTimeout(() => console.log(2), 2000);
+  setTimeout(() => console.log(1), 3000);
+  setTimeout(() => console.log("Go!"), 4000);
+}, 1000);
 
-let fun = [
-  3,2,1,0
-]
+// Alternate version of the solution using a loop to handle the countdown:
+let countdown = [3, 2, 1, 0];
 
 setTimeout(() => {
-  for(let i=0; i<fun.length; i++) {
-    let n = fun[i];
-    if(n>0) {
-      setTimeout(() => console.log(n), (4-n)*1000)
-    } else {
-      setTimeout(() => console.log("Go!"), (4-n)*1000)
-    }
-  };
-}, 4000)
+  countdown.forEach((num, index) => {
+    setTimeout(() => {
+      if (num > 0) {
+        console.log(num);
+      } else {
+        console.log("Go!");
+      }
+    }, (index + 1) * 1000);
+  });
+}, 1000); // Starts after 1 second delay.
